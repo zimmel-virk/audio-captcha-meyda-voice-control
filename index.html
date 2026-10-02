@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CM3065 – Exercise 2 (Captcha + Meyda Visualiser + Voice Control)</title>
+
+  <!-- Styling stays separate so I can edit layout/colours without touching the JS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Core p5 library (canvas + draw loop + input handling) -->
+  <script src="libraries/p5.min.js"></script>
+
+  <!-- p5.sound adds audio playback + effects + analyser nodes -->
+  <script src="libraries/p5.sound.min.js"></script>
+
+  <!-- p5.speech is used for speech recognition + text-to-speech inside the app -->
+  <script src="libraries/p5.speech.js"></script>
+
+  <!-- Meyda is used to extract audio features (RMS, centroid, etc.) for the visualiser/logic -->
+  <script src="libraries/meyda.min.js"></script>
+    
+</head>
+<body>
+  <!-- I attach any UI elements (buttons/inputs) into this container from sketch.js -->
+  <main id="app"></main>
+
+  <!-- Main app code (kept last so all libraries above are already loaded) -->
+  <script src="sketch.js"></script>
+</body>
+</html>

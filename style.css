@@ -1,0 +1,199 @@
+:root{
+  /* main theme colors (kept as CSS variables so I can tweak the whole UI from one place) */
+  --bg:#0b0f16;
+  --card:#121a27;
+  --text:#e9eef7;
+  --muted:#a7b3c7;
+
+  /* highlight + feedback colors used across headings, badges, and status states */
+  --accent:#5ce1e6;
+  --danger:#ff5b5b;
+  --ok:#46e38f;
+
+  /* soft border color so cards/buttons look separated without harsh outlines */
+  --border:rgba(255,255,255,0.10);
+}
+
+/* keep sizing predictable (padding + border stay inside width/height) */
+*{ box-sizing:border-box; }
+
+body{
+  /* remove default browser spacing so layout is fully controlled */
+  margin:0;
+
+  /* clean system font stack so it looks modern and consistent across OS */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+
+  /* global background + text for the whole page */
+  background:var(--bg);
+  color:var(--text);
+}
+
+#app{
+  /* center the whole UI and stop it getting too wide on big screens */
+  max-width:1200px;
+  margin:0 auto;
+
+  /* breathing room around the app */
+  padding:18px;
+}
+
+.header{
+  /* header layout: title on the left, badge/info on the right */
+  display:flex;
+  gap:14px;
+  align-items:flex-end;
+  justify-content:space-between;
+
+  /* space below header before the main grid starts */
+  margin-bottom:14px;
+}
+
+h1{
+  /* keep the title compact so it fits nicely above the controls */
+  margin:0;
+  font-size:18px;
+  letter-spacing:0.3px;
+}
+
+/* small helper text under title (subtle and muted) */
+small{ color:var(--muted); }
+
+.grid{
+  /* 2-column layout: left control panel + right visual output */
+  display:grid;
+  grid-template-columns: 420px 1fr;
+  gap:14px;
+}
+
+.card{
+  /* card background + border to separate sections cleanly */
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+
+  /* internal spacing so content doesn’t touch edges */
+  padding:14px;
+}
+
+.card h2{
+  /* section headings inside each card */
+  margin:0 0 10px 0;
+  font-size:14px;
+
+  /* accent color so headings pop against dark card */
+  color:var(--accent);
+}
+
+.row{
+  /* flexible row layout for buttons/inputs that wraps on smaller widths */
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+/* simple spacing between stacked rows */
+.row + .row{ margin-top:10px; }
+
+label{
+  /* labels stay subtle so inputs are the focus */
+  font-size:12px;
+  color:var(--muted);
+}
+
+input[type="text"], select{
+  /* full-width inputs so they align neatly in the control column */
+  width:100%;
+  padding:10px 10px;
+
+  /* rounded style to match the overall UI */
+  border-radius:10px;
+
+  /* soft borders and dark glassy background */
+  border:1px solid var(--border);
+  background:rgba(0,0,0,0.25);
+
+  /* readable input text on dark theme */
+  color:var(--text);
+  outline:none;
+}
+
+button{
+  /* consistent button sizing */
+  padding:10px 12px;
+  border-radius:10px;
+
+  /* same border system as cards/inputs */
+  border:1px solid var(--border);
+
+  /* slightly transparent so it fits the dark theme */
+  background:rgba(255,255,255,0.06);
+  color:var(--text);
+
+  /* pointer cursor so it feels clickable */
+  cursor:pointer;
+}
+
+/* small hover lift so buttons feel responsive */
+button:hover{ background:rgba(255,255,255,0.10); }
+
+.badge{
+  /* pill-style badge used for small status labels */
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+
+  /* consistent borders + muted text for secondary info */
+  border:1px solid var(--border);
+  font-size:12px;
+  color:var(--muted);
+}
+
+.status{
+  /* status box for messages like “playing”, “error”, etc. */
+  padding:10px;
+  border-radius:10px;
+
+  /* same border/background style as inputs */
+  border:1px solid var(--border);
+  background:rgba(0,0,0,0.25);
+
+  /* muted by default until marked ok/bad */
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+}
+
+/* success state */
+.status.ok{ color:var(--ok); }
+
+/* error / warning state */
+.status.bad{ color:var(--danger); }
+
+.canvasWrap{
+  /* wrapper for the p5 canvas so it clips nicely and has a border */
+  position:relative;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+.hint{
+  /* small helper text under controls */
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+}
+
+.kbd{
+  /* inline “keyboard key” styling used in hints */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size:11px;
+  padding:2px 6px;
+
+  /* rounded chip look */
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,0.25);
+}

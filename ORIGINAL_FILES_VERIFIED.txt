@@ -1,0 +1,9 @@
+ORIGINAL PROJECT FILE VERIFICATION
+
+All copied original Exercise 2 files were verified byte-for-byte against the source archive using SHA-256.
+No original HTML, JavaScript, CSS, library, WAV, or MP3 file was modified.
+
+Excluded only: .DS_Store operating-system metadata.
+
+Original files copied and verified: 12
+Mismatches: 0
